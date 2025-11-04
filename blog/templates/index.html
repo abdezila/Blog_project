@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Blog</title>
+  <link rel="stylesheet" href="{% static "style.css" %} " />
+</head>
+<body>
+
+  <header>
+    <h1>Welcome to my blog.</h1>
+  </header>
+
+  <main class="container">
+    <section class="posts">
+      {%for Post in Posts %}  
+      <article class="post-card">
+        <h2>{{Post.title}}</h2>
+        <p>{{Post.content | truncatewords:20}}</p> <br>
+        <a href="post/{{Post.id}}" class="btn">Read More →</a>
+      </article>
+      {% endfor %}
+    </section>
+
+    <aside class="sidebar">
+      <div class="about">
+        <h3>About Me</h3>
+        <p>I'm Abdou IT student this my first project of blog in Django, nice to meet you guys</p><br>
+        <a href="about" class="btn-green">Contact me</a>
+      </div>
+    </aside>
+  </main>
+
+</body>
+</html>
